@@ -3,4 +3,4 @@
 @import "~@firestitch/drawer/styles";
 @import '../src/app/styles.scss';
 
-@include fs-drawer($mat-blue);
+@include fs-tabs();

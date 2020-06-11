@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FsExampleModule } from '@firestitch/example';
 import { FsMessageModule } from '@firestitch/message';
-import { FsComponentModule } from '@firestitch/package';
+import { FsTabsModule } from '@firestitch/tabs';
 import { FsLabelModule } from '@firestitch/label';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -17,16 +17,34 @@ import {
 } from './components';
 import { AppComponent } from './app.component';
 import { KitchenSinkConfigureComponent } from './components/kitchen-sink-configure';
+import { TabsComponent } from './components/tabs/tabs.component';
+import { TabAComponent, TabBComponent, TabCComponent, TabDComponent } from './components/tabs';
+import { FsDialogModule } from '@firestitch/dialog';
+import { DialogComponent } from './components/tabs/tab-a/dialog/dialog.component';
+
 
 const routes: Routes = [
-  { path: '', component: ExamplesComponent },
+  {
+    path: '',
+    component: KitchenSinkComponent,
+  },
+  { path: 'tabs',
+    component: TabsComponent,
+    children: [
+      { path: '', redirectTo: 'a', pathMatch: 'full'},
+      { path: 'a', component: TabAComponent },
+      { path: 'b', component: TabBComponent },
+      { path: 'c', component: TabCComponent },
+      { path: 'd', component: TabDComponent },
+    ]
+  },
 ];
 
 @NgModule({
   bootstrap: [ AppComponent ],
   imports: [
     BrowserModule,
-    FsComponentModule,
+    FsTabsModule.forRoot(),
     BrowserAnimationsModule,
     AppMaterialModule,
     FormsModule,
@@ -35,12 +53,19 @@ const routes: Routes = [
     FsMessageModule.forRoot(),
     ToastrModule.forRoot({ preventDuplicates: true }),
     RouterModule.forRoot(routes),
+    FsDialogModule.forRoot(),
   ],
   declarations: [
     AppComponent,
     ExamplesComponent,
     KitchenSinkComponent,
-    KitchenSinkConfigureComponent
+    KitchenSinkConfigureComponent,
+    TabAComponent,
+    TabBComponent,
+    TabCComponent,
+    TabDComponent,
+    TabsComponent,
+    DialogComponent,
   ],
 })
 export class PlaygroundModule {

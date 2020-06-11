@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { KitchenSinkConfigureComponent } from '../kitchen-sink-configure';
-import { FsExampleComponent } from '@firestitch/example';
-import { FsMessage } from '@firestitch/message';
+
 
 @Component({
   selector: 'kitchen-sink',
@@ -12,8 +10,13 @@ export class KitchenSinkComponent {
 
   public config = {};
 
-  constructor(private exampleComponent: FsExampleComponent,
-              private message: FsMessage) {
-    exampleComponent.setConfigureComponent(KitchenSinkConfigureComponent, { config: this.config });
+  public tabs = [
+    { path: '/a', label: 'Tab A' },
+    { path: '/b', label: 'Tab B' },
+    { path: '/c', label: 'Tab C' },
+    { path: '/d', label: 'Tab D' }
+  ];
+
+  constructor() {
   }
 }
