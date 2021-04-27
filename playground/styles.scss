@@ -1,10 +1,8 @@
 @use '~@angular/material/theming' as mat-theme;
 @use '../tools/assets/playground.scss';
 
-@use '../src/styles' as fs-tabs with (
-  $fs-tabs-primary-color: mat-theme.mat-color(playground.$primary-color),
-  $fs-tabs-tab-margin: 500px
-);
+@use '~@firestitch/style/styles';
+@use '../src/styles' as fs-tabs;
 
 @import '~@firestitch/message/styles';
 @import "~@firestitch/drawer/styles";

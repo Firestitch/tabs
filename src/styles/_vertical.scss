@@ -1,4 +1,5 @@
 @use './variables';
+@use '~@firestitch/style/variables' as fs-style-variables;
 
 .fs-tabs-vertical {
   .mat-tab-body-content,
@@ -15,14 +16,14 @@
     margin-bottom: -24px;
   }
 
-  @media (max-width: variables.$break-xsmall) {
+  @media (max-width: fs-style-variables.$break-xsmall) {
     .buttons button {
       width: 100%;
       display: block;
     }
   }
 
-  @media (min-width: variables.$break-xsmall) {
+  @media (min-width: fs-style-variables.$break-xsmall) {
     &.mat-tab-group {
       flex-direction: row;
 
