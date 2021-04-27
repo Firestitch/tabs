@@ -1,0 +1,11 @@
+@use '~@angular/material/_theming.scss' as mat-theme;
+
+$primary-color: mat-theme.mat-color(
+    mat-theme.mat-palette(mat-theme.$mat-blue,800),
+    default
+) !default;
+
+$break-xsmall: 599px !default;
+$tab-margin: 12px !default;
+$tab-dialog-margin: 24px !default;
+$tab-sticky-height: 35px !default;

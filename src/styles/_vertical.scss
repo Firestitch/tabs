@@ -1,0 +1,63 @@
+@use './variables';
+
+.fs-tabs-vertical {
+  .mat-tab-body-content,
+  .mat-tab-body-wrapper {
+    overflow: visible;
+  }
+
+  .mat-tab-body.mat-tab-body-active {
+    overflow: visible;
+    right: inherit;
+  }
+
+  .mat-dialog-content {
+    margin-bottom: -24px;
+  }
+
+  @media (max-width: variables.$break-xsmall) {
+    .buttons button {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  @media (min-width: variables.$break-xsmall) {
+    &.mat-tab-group {
+      flex-direction: row;
+
+      .mat-tab-body-wrapper {
+        width: 100%;
+      }
+
+      .mat-ink-bar {
+        display: none;
+      }
+
+      .mat-tab-header {
+        border: none;
+        margin-right: 40px;
+      }
+
+      .mat-tab-labels {
+        flex-direction: column;
+
+        .mat-tab-label {
+          text-transform: initial;
+          color: initial;
+          font-size: 109%;
+          justify-content: start;
+          min-width: auto;
+          height: 38px;
+          opacity: 1;
+
+          &.mat-tab-label-active {
+            background-color: variables.$primary-color;
+            color: #fff;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+  }
+}

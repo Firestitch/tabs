@@ -21,6 +21,7 @@ import { TabsComponent } from './components/tabs/tabs.component';
 import { TabAComponent, TabBComponent, TabCComponent, TabDComponent } from './components/tabs';
 import { FsDialogModule } from '@firestitch/dialog';
 import { DialogComponent } from './components/tabs/tab-a/dialog/dialog.component';
+import { VerticalTabsComponent } from './components/vertical-tabs/vertical-tabs.component';
 
 
 const routes: Routes = [
@@ -66,6 +67,7 @@ const routes: Routes = [
     TabDComponent,
     TabsComponent,
     DialogComponent,
+    VerticalTabsComponent,
   ],
 })
 export class PlaygroundModule {

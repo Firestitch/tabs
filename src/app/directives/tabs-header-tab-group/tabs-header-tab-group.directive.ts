@@ -1,9 +1,8 @@
-import {
-  Directive, ElementRef, Inject, NgZone, Optional, Renderer2,
-} from '@angular/core';
+import { Directive, ElementRef, Inject, Input, NgZone, Optional, Renderer2 } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
-import { MatTabGroup } from '@angular/material/tabs';
+import { MAT_TABS_CONFIG, MatTabGroup } from '@angular/material/tabs';
+
 import { FsTabsHeaderBaseDirective } from '../tabs-header-base/tabs-header-base';
 import { FS_TABS_CONFIG } from '../../fs-tabs-config.provider';
 import { IFsTabsConfig } from '../../interfaces/tabs-config.interface';
@@ -12,9 +11,20 @@ import { IFsTabsConfig } from '../../interfaces/tabs-config.interface';
 @Directive({
   selector: 'mat-tab-group, matTabGroup, [matTabGroup]',
   exportAs: 'fsTabsHeaderTabGroup',
+  host: {
+    '[class.fs-tabs-vertical]': 'orientation === "vertical"',
+  },
+  providers: [
+    {
+      provide: MAT_TABS_CONFIG,
+      useValue: { animationDuration : '0ms' },
+    },
+  ]
 })
 export class FsTabsHeaderTabGroupDirective extends FsTabsHeaderBaseDirective {
 
+  @Input()
+  public orientation: 'horizontal' | 'vertical' = 'horizontal';
 
   constructor(
     _renderer: Renderer2,
